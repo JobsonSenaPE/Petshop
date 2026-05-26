@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/src/Animal.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/Animal.java" />
+              <option name="originalContent" value="public interface Animal {&#10;&#10;    public interface animal {&#10;        int getId();&#10;        String getNome();&#10;        Especie getEspecie();&#10;        String fazersom();&#10;    }&#10;&#10;}&#10;" />
+              <option name="updatedContent" value="public interface Animal {&#10;    // Interface que descreve um animal no sistema&#10;    int getId();&#10;    String getName();&#10;    Especie getEspecie();&#10;    String makeSound();&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

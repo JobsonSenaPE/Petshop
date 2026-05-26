@@ -1,0 +1,622 @@
+{
+	"info": {
+		"name": "Petshop System API",
+		"description": "Coleção de testes para o Sistema de Agendamento Petshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PÚBLICOS - Tutores",
+			"item": [
+				{
+					"name": "Registrar Novo Tutor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"João Silva\",\n  \"cpf\": \"11122233344\",\n  \"phone\": \"11999888777\",\n  \"email\": \"joao@email.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/public/tutors/register",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "tutors", "register"]
+						}
+					}
+				},
+				{
+					"name": "Obter Tutor por ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/public/tutors/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "tutors", "1"]
+						}
+					}
+				},
+				{
+					"name": "Buscar Tutor por CPF",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/public/tutors/search/cpf/12345678901",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "tutors", "search", "cpf", "12345678901"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "PÚBLICOS - Animais",
+			"item": [
+				{
+					"name": "Cadastrar Novo Animal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Fluffy\",\n  \"species\": \"CAT\",\n  \"breed\": \"Persa\",\n  \"age\": 5,\n  \"weight\": 4.5,\n  \"observations\": \"Gato tranquilo\",\n  \"tutorId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/public/animals",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "animals"]
+						}
+					}
+				},
+				{
+					"name": "Obter Animal por ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/public/animals/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "animals", "1"]
+						}
+					}
+				},
+				{
+					"name": "Listar Animais do Tutor",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/public/animals/tutor/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "animals", "tutor", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "PÚBLICOS - Agendamentos",
+			"item": [
+				{
+					"name": "Listar Serviços Disponíveis",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/public/appointments/services",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "appointments", "services"]
+						}
+					}
+				},
+				{
+					"name": "Agendar Novo Serviço",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"animalId\": 1,\n  \"tutorId\": 1,\n  \"scheduledDateTime\": \"2025-06-20T10:00:00\",\n  \"serviceType\": \"BATH\",\n  \"notes\": \"Animal sensível, manejo cuidadoso\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/public/appointments/schedule",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "appointments", "schedule"]
+						}
+					}
+				},
+				{
+					"name": "Obter Agendamento",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/public/appointments/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "appointments", "1"]
+						}
+					}
+				},
+				{
+					"name": "Listar Agendamentos do Tutor",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/public/appointments/tutor/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "appointments", "tutor", "1"]
+						}
+					}
+				},
+				{
+					"name": "Cancelar Agendamento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"reason\": \"Cliente mudou de horário\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/public/appointments/1/cancel",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "appointments", "1", "cancel"]
+						}
+					}
+				},
+				{
+					"name": "Gerar Horários Disponíveis",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/public/appointments/available-slots?from=2025-06-20T08:00:00&to=2025-06-20T20:00:00",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "appointments", "available-slots"],
+							"query": [
+								{
+									"key": "from",
+									"value": "2025-06-20T08:00:00"
+								},
+								{
+									"key": "to",
+									"value": "2025-06-20T20:00:00"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "PÚBLICOS - Pagamentos",
+			"item": [
+				{
+					"name": "Processar Pagamento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"appointmentId\": 1,\n  \"paymentMethod\": \"PIX\",\n  \"amount\": 45.00,\n  \"discount\": 0,\n  \"notes\": \"Pagamento realizado via PIX\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/public/payments/process",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "payments", "process"]
+						}
+					}
+				},
+				{
+					"name": "Total Gasto pelo Tutor",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/public/payments/tutor/1/total-spent",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "payments", "tutor", "1", "total-spent"]
+						}
+					}
+				},
+				{
+					"name": "Histórico de Pagamentos",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/public/payments/tutor/1/history",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "public", "payments", "tutor", "1", "history"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "FUNCIONÁRIOS - Agendamentos",
+			"item": [
+				{
+					"name": "Agendamentos de Hoje - Banho",
+					"request": {
+						"method": "GET",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "banho_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "senha123",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/appointments/today/department/BANHO",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "employee", "appointments", "today", "department", "BANHO"]
+						}
+					}
+				},
+				{
+					"name": "Agendamentos por Data e Departamento",
+					"request": {
+						"method": "GET",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "banho_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "senha123",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/appointments/date/2025-06-20/department/BANHO",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "employee", "appointments", "date", "2025-06-20", "department", "BANHO"]
+						}
+					}
+				},
+				{
+					"name": "Listar Departamentos",
+					"request": {
+						"method": "GET",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "banho_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "senha123",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/appointments/departments",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "employee", "appointments", "departments"]
+						}
+					}
+				},
+				{
+					"name": "Iniciar Atendimento",
+					"request": {
+						"method": "PUT",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "banho_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "senha123",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/appointments/1/start",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "employee", "appointments", "1", "start"]
+						}
+					}
+				},
+				{
+					"name": "Concluir Atendimento",
+					"request": {
+						"method": "PUT",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "banho_user",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "senha123",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/appointments/1/complete",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "employee", "appointments", "1", "complete"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "FUNCIONÁRIOS - Administração",
+			"item": [
+				{
+					"name": "Listar Todos os Tutores",
+					"request": {
+						"method": "GET",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/admin/tutors",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "employee", "admin", "tutors"]
+						}
+					}
+				},
+				{
+					"name": "Atualizar Tutor",
+					"request": {
+						"method": "PUT",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ana Silva Atualizada\",\n  \"cpf\": \"12345678901\",\n  \"phone\": \"11999999998\",\n  \"email\": \"ana.nova@email.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/admin/tutors/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "employee", "admin", "tutors", "1"]
+						}
+					}
+				},
+				{
+					"name": "Deletar Tutor",
+					"request": {
+						"method": "DELETE",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/admin/tutors/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "employee", "admin", "tutors", "1"]
+						}
+					}
+				},
+				{
+					"name": "Listar Todos os Animais",
+					"request": {
+						"method": "GET",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/admin/animals",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "employee", "admin", "animals"]
+						}
+					}
+				},
+				{
+					"name": "Listar Animais do Tutor",
+					"request": {
+						"method": "GET",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/admin/tutors/1/animals",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "employee", "admin", "tutors", "1", "animals"]
+						}
+					}
+				},
+				{
+					"name": "Atualizar Animal",
+					"request": {
+						"method": "PUT",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Rex Atualizado\",\n  \"species\": \"DOG\",\n  \"breed\": \"Vira-lata\",\n  \"age\": 5,\n  \"weight\": 13.5,\n  \"observations\": \"Mais velho agora\",\n  \"tutorId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/employee/admin/animals/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": ["8080"],
+							"path": ["api", "employee", "admin", "animals", "1"]
+						}
+					}
+				}
+			]
+		}
+	]
+}

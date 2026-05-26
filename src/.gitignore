@@ -1,0 +1,67 @@
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-*
+
+# Build outputs
+target/
+build/
+out/
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+
+# Spring Boot
+logs/
+*.log
+*.log.*
+
+# H2 Database
+*.h2.db
+*.h2.mv.db
+*.h2.trace.db
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# OS
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# IntelliJ
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings
+*.launch
+
+# Misc
+*.bak
+*.tmp
+*.temp
